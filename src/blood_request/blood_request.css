@@ -1,0 +1,331 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f9fc;
+    color: #17252d;
+}
+
+.page {
+    min-height: 100vh;
+}
+
+.header {
+    height: 70px;
+    background: #f7fbfd;
+    border-bottom: 1px solid #e2d1d1;
+    display: flex;
+    align-items: center;
+    padding: 0 38px;
+    font-size: 25px;
+    font-weight:600;
+}
+
+.back-arrow {
+    font-size: 35px;
+    margin-right: 22px;
+    font-weight: 400;
+}
+
+.container {
+    width: 910px;
+    max-width: calc(100% - 40px);
+    margin: 50px auto;
+}
+
+.intro {
+    margin-bottom: 32px;
+}
+
+.intro h1 {
+    font-size:32px;
+    margin-bottom: 10px;
+}
+
+.intro p {
+    color: #665959;
+    font-size: 18px;
+}
+
+.card {
+    background: white;
+    border: 1px solid #d8e1e6;
+    border-radius: 14px;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.04);
+}
+
+.card > label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    color: #5e5151;
+    letter-spacing: 0.5px;
+}
+
+.blood-card {
+    padding: 23px 20px 20px;
+    margin-bottom: 30px;
+}
+
+.blood-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 17px;
+}
+
+.blood-btn {
+    height: 61px;
+    background: white;
+    border: 2px solid #e4c9c9;
+    border-radius: 9px;
+    font-size: 18px;
+    color: #20282d;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.blood-btn:hover {
+    background: #fff7f7;
+}
+
+.blood-btn.selected {
+    border-color: #be151c;
+    color: #b71920;
+    background: #fff9f9;
+}
+
+.middle-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.urgency-card {
+    padding: 23px 20px 20px;
+}
+
+.urgency-option {
+    height: 61px;
+    border: 1px solid #e5cfcf;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    margin-top: 13px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.radio {
+    width: 21px;
+    height: 21px;
+    border: 1px solid #d8c6c6;
+    border-radius: 50%;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #c5161d;
+    font-size: 13px;
+}
+
+.urgency-option.active.radio {
+    border: 6px solid #c5161d;
+}
+
+.dot {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    margin-left:8px;
+}
+
+.critical {
+    background: #c5161d;
+}
+
+.high {
+    background: #ff801d;
+}
+
+.normal {
+    background: #0873a9;
+}
+
+.units-card {
+    min-height: 285px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.units-control {
+    display: flex;
+    align-items: center;
+    gap: 42px;
+    margin-top: 24px;
+}
+
+.units-control button{
+    width: 51px;
+    height: 51px;
+    border: 1px solid #decaca;
+    border-radius: 50%;
+    background: white;
+    font-size: 28px;
+    color: #555;
+    cursor: pointer;
+}
+
+.units-control span {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.hospital-card {
+    padding: 22px 20px 20px;
+}
+
+.hospital-card input {
+    width: 100%;
+    height: 62px;
+    margin-top: 8px;
+    margin-bottom: 17px;
+    border: 1px solid #d8c5c5;
+    border-radius: 9px;
+    padding: 0 18px;
+    font-size: 18px;
+    outline: none;
+    background: #f9fcfe;
+}
+
+.hospital-card input:focus {
+    border-color: #c5161d;
+}
+
+.location-label {
+    margin-bottom: 8px;
+}
+
+.map {
+    height: 230px;
+    border-radius: 9px;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(145deg, #dce9f0, #c8dce8);
+}
+
+.map::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(30deg, transparent 45%, #aabfcb 46%, transparent 48%),
+        linear-gradient(120deg, transparent 45%, #b4c9d3 46%, transparent 48%),
+        linear-gradient(70deg, transparent 47%, #d9e5eb 46%, transparent 50%);
+    opacity: 0.8;
+}
+
+
+.map-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.map-pin {
+    font-size: 45px;
+    z-index: 2;
+}
+
+.map-hospital {
+    background: white;
+    padding: 7px 12px;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-left: -5px;
+    z-index: 2;
+}
+
+.map-bottom {
+    position: absolute;
+    left: 18px;
+    bottom: 18px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    z-index: 3;
+}
+
+.post-btn {
+    width: 100%;
+    height: 73px;
+    margin-top: 60px;
+    border: none;
+    border-radius: 40px;
+    background: #c90e16;
+    color: white;
+    font-size: 21px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(190, 15, 20, 0.2);
+}
+
+.post-btn:hover {
+    background: #ad0c13;
+}
+
+.post-btn span {
+    margin-right: 10px;
+}
+
+.notice {
+    text-align: center;
+    color: #665959;
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+@media (max-width: 700px) {
+    .container {
+        max-width: calc(100% - 24px);
+        margin-top: 30px;
+    }
+
+    .header {
+        padding: 0 18px;
+        font-size: 20px;
+    }
+
+    .intro h1 {
+        font-size: 27px;
+    }
+
+    .middle-row {
+        grid-template-columns: 1fr;
+    }
+
+    .blood-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .units-card {
+        min-height: 220px;
+    }
+
+    .post-btn {
+        margin-top: 35px;
+    }
+}
