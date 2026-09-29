@@ -262,10 +262,8 @@ function DonorDashboard(){
         donorBloodGroup:donor.bloodGroup,
         donorLocation:donor.location,
         status:"arrived",
-        donorStatus:"arrived",
-        arrivedAt:new Date().toISOString(),
-        donorLatitude:position?.[0]??saved.donorLatitude,
-        donorLongitude:position?.[1]??saved.donorLongitude
+        donorStatus:"arrived",arrivedAt:new Date().toISOString(),
+        donorLatitude:position?.[0]??saved.donorLatitude,donorLongitude:position?.[1]??saved.donorLongitude
       })
     );
 
@@ -295,16 +293,12 @@ function DonorDashboard(){
 
         <nav className="donor-nav">
           <button type="button">Home</button>
-          <button type="button" className="active">
-            Requests
-          </button>
+          <button type="button" className="active">Requests</button>
           <button type="button" onClick={() => navigate("/donate")}> Donate</button>
           <button type="button" onClick={() => navigate("/donor-profile")}>Profile</button>
         </nav>
 
-        <button className="notification-btn" type="button">
-          🔔
-        </button>
+        <button className="notification-btn" type="button">🔔</button>
       </header>
 
       <main className="donor-main">
@@ -318,13 +312,9 @@ function DonorDashboard(){
                 </div>
 
                 <div>
-                  <h1>
-                    {status==="arrived"?"ARRIVED":"EN ROUTE"}
-                  </h1>
+                  <h1>{status==="arrived"?"ARRIVED":"EN ROUTE"}</h1>
                   <p>
-                    {status==="arrived"
-                      ?"You have arrived at the hospital."
-                      :"You are on your way to donate blood."}
+                    {status==="arrived"?"You have arrived at the hospital.":"You are on your way to donate blood."}
                   </p>
                 </div>
               </div>
@@ -364,17 +354,12 @@ function DonorDashboard(){
               <p>Name: {donor.name}</p>
               <p>Blood Group: {donor.bloodGroup}</p>
               <p>Location: {donor.location}</p>
-
               {status==="accepted"&&accuracy!=null&&(
-                <p className="verified">
-                  ✓ Live GPS active ({Math.round(accuracy)} m accuracy)
-                </p>
+                <p className="verified">✓ Live GPS active ({Math.round(accuracy)} m accuracy)</p>
               )}
 
               {status==="arrived"&&(
-                <p className="gps-stopped">
-                  ✓ Live location sharing stopped
-                </p>
+                <p className="gps-stopped">✓ Live location sharing stopped</p>
               )}
             </div>
 
@@ -403,9 +388,7 @@ function DonorDashboard(){
                 <div>✕</div>
                 <div>
                   <strong>Request Declined</strong>
-                  <p>
-                    You have declined this blood donation request.
-                  </p>
+                  <p>You have declined this blood donation request.</p>
                 </div>
               </div>
             )}
@@ -415,10 +398,8 @@ function DonorDashboard(){
                 <div>✓</div>
                 <div>
                   <strong>Request Accepted</strong>
-                  <p>
-                    Thank you for helping. Your live location
-                    is being shared while you travel to the hospital.
-                  </p>
+                  <p>Thank you for helping. Your live location
+                    is being shared while you travel to the hospital.</p>
 
                   <button
                     className="arrived-btn"
@@ -436,10 +417,8 @@ function DonorDashboard(){
                 <div>✓</div>
                 <div>
                   <strong>Arrived at Hospital</strong>
-                  <p>
-                    You have arrived at the hospital for the
-                    blood donation.
-                  </p>
+                  <p>You have arrived at the hospital for the
+                    blood donation.</p>
                 </div>
               </div>
             )}
