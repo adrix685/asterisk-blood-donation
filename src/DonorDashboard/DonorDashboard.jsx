@@ -294,8 +294,8 @@ function DonorDashboard(){
         <nav className="donor-nav">
           <button type="button">Home</button>
           <button type="button" className="active">Requests</button>
-          <button type="button" onClick={() => navigate("/donate")}> Donate</button>
-          <button type="button" onClick={() => navigate("/donor-profile")}>Profile</button>
+          <button type="button" onClick={()=>navigate("/donate")}> Donate</button>
+          <button type="button" onClick={()=>navigate("/donor-profile")}>Profile</button>
         </nav>
 
         <button className="notification-btn" type="button">🔔</button>
@@ -352,7 +352,7 @@ function DonorDashboard(){
             <div className="donor-request-info">
               <strong>Donor Information</strong>
               <p>Name: {donor.name}</p>
-              <p>Blood Group: {donor.bloodGroup}</p>
+              <p>Blood Group:{donor.bloodGroup}</p>
               <p>Location: {donor.location}</p>
               {status==="accepted"&&accuracy!=null&&(
                 <p className="verified">✓ Live GPS active ({Math.round(accuracy)} m accuracy)</p>
@@ -433,10 +433,8 @@ function DonorDashboard(){
             ):status!=="accepted"?(
               <div className="location-loading">
                 <strong>Location sharing is off</strong>
-                <p>
-                  Accept the blood donation request to start
-                  sharing your live location.
-                </p>
+                <p>Accept the blood donation request to start
+                  sharing your live location.</p>
               </div>
             ):position?(
               <>
@@ -457,8 +455,7 @@ function DonorDashboard(){
                   >
                     <Popup>
                       <strong>{donor.name}</strong>
-                      <br />
-                      Your current location
+                      <br />Your current location
                     </Popup>
                   </Marker>
 

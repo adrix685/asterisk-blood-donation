@@ -263,17 +263,13 @@
   .donate-nav{display:none}
   .donate-container{padding:30px 15px 50px}
   .donate-heading h1{font-size:27px}
-
   .donation-info-card,
   .donation-form-card,
   .success-card{padding:22px}
-
   .form-grid,
   .appointment-details{grid-template-columns:1fr}
-
   .full-width{grid-column:auto}
   .success-actions{flex-direction:column}
-
   .primary-button,
   .secondary-button{width:100%}
 }

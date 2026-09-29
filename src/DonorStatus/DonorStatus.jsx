@@ -238,9 +238,7 @@ function DonorStatus(){
 
                 <div className="donor-details">
                   <h3>{donor}</h3>
-                  <p>
-                    Blood Group: <strong>{bloodGroup}</strong>
-                  </p>
+                  <p>Blood Group: <strong>{bloodGroup}</strong></p>
                   <p>
                     📍 {request.donorLocation||request.location||"Kolkata"}
                   </p>
@@ -297,16 +295,14 @@ function DonorStatus(){
                   <Marker position={location} icon={icons.donor}>
                     <Popup>
                       <strong>{donor}</strong>
-                      <br/>
-                      Donor's live location
+                      <br/> Donor's live location
                     </Popup>
                   </Marker>
 
                   <Marker position={hospital} icon={icons.hospital}>
                     <Popup>
                       <strong>{request.hospital}</strong>
-                      <br/>
-                      Donation destination
+                      <br/>Donation destination
                     </Popup>
                   </Marker>
 
@@ -327,18 +323,14 @@ function DonorStatus(){
                 </div>
               </div>
             ):(
-              <div className="waiting-text">
-                📍 Waiting for <strong>{donor}</strong> to share live location...
-              </div>
+              <div className="waiting-text">📍 Waiting for <strong>{donor}</strong> to share live location...</div>
             )}
           </>
         )}
 
         {status==="arrived"&&(
           <>
-            <div className="en-route-status arrived-status">
-              ✓ ARRIVED
-            </div>
+            <div className="en-route-status arrived-status"> ✓ ARRIVED </div>
 
             <p className="route-text">
               <strong>{donor}</strong> has arrived at{" "}
@@ -349,9 +341,7 @@ function DonorStatus(){
               <div className="arrival-icon">✓</div>
               <div>
                 <strong>Donor has arrived</strong>
-                <p>
-                  {donor} has reached the hospital for the blood donation.
-                </p>
+                <p>{donor} has reached the hospital for the blood donation.</p>
               </div>
             </div>
           </>

@@ -66,7 +66,7 @@ function DonorProfile(){
           <button onClick={()=>navigate("/donor-dashboard")}>
             Requests
           </button>
-         <button type="button" onClick={() => navigate("/donate")}>Donate</button>
+         <button type="button" onClick={()=> navigate("/donate")}>Donate</button>
           <button className="active">Profile</button>
         </nav>
 
@@ -144,9 +144,7 @@ function DonorProfile(){
           <div className="profile-grid">
             {fields.map(([name,label])=>(
               <div
-                className={`input-group ${
-                  name==="location"?"full-width":""
-                }`}
+                className={`input-group ${name==="location"?"full-width":""}`}
                 key={name}
               >
                 <label>{label}</label>

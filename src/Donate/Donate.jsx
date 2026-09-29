@@ -3,14 +3,14 @@ import { useNavigate } from "react-router-dom";
 import "./Donate.css";
 
 const bloodGroups = ["A+","A-","B+","B-","AB+","AB-","O+","O-"];
-const donationTypes = ["Whole Blood","Plasma","Platelets"];
+const donationTypes = ["Blood","Plasma","Platelets"];
 
 function Donate() {
   const navigate = useNavigate();
 
   const [form, setForm] = useState({
     bloodGroup:"A+",
-    donationType:"Whole Blood",
+    donationType:"Blood",
     date:"",
     location:"",
     notes:""
@@ -76,13 +76,13 @@ function Donate() {
             <div className="success-actions">
               <button
                 className="primary-button"
-                onClick={() => setSubmitted(false)}
+                onClick={()=>setSubmitted(false)}
               >
                 Schedule Another
               </button>
               <button
                 className="secondary-button"
-                onClick={() => go("/donor-dashboard")}
+                onClick={()=>go("/donor-dashboard")}
               >
                 Back to Requests
               </button>
@@ -126,14 +126,14 @@ function Donate() {
                   <div className="form-group">
                     <label>Blood Group</label>
                     <select name="bloodGroup" value={form.bloodGroup} onChange={change}>
-                      {bloodGroups.map(x => <option key={x}>{x}</option>)}
+                      {bloodGroups.map(x=><option key={x}>{x}</option>)}
                     </select>
                   </div>
 
                   <div className="form-group">
                     <label>Donation Type</label>
                     <select name="donationType" value={form.donationType} onChange={change}>
-                      {donationTypes.map(x => <option key={x}>{x}</option>)}
+                      {donationTypes.map(x=><option key={x}>{x}</option>)}
                     </select>
                   </div>
 

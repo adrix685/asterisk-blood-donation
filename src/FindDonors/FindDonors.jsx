@@ -94,10 +94,7 @@ function FindDonors() {
 
         {hasRequest && (
           <div className="tracking-section">
-            <button
-              className="track-button"
-              onClick={() => navigate("/donor-status")}
-              type="button"
+            <button className="track-button" onClick={() => navigate("/donor-status")} type="button"
             >
               📍 Track Donor
             </button>
@@ -138,9 +135,7 @@ function FindDonors() {
           {!availableDonors.length ? (
             <div className="no-donors">
               <h3>No available donors found</h3>
-              <p>
-                There are currently no available {requiredBloodGroup} donors.
-              </p>
+              <p>There are currently no available {requiredBloodGroup} donors. </p>
             </div>
           ) : (
             <div className="donor-grid">
@@ -154,25 +149,18 @@ function FindDonors() {
                   <div className="donor-info">
                     <h3>{donor.name}</h3>
                     <p>📍 {donor.location}</p>
-                    <p>
-                      Blood Group: <strong>{donor.bloodGroup}</strong>
-                    </p>
+                    <p> Blood Group: <strong>{donor.bloodGroup}</strong></p>
                     <p className="available">● Available</p>
                   </div>
 
                   <div className="donor-buttons">
-                    <button
-                      className="request-button"
-                      onClick={() => handleRequest(donor)}
-                      type="button"
+                    <button className="request-button"onClick={() => handleRequest(donor)} type="button"
                     >
                       Request Donor
                     </button>
 
                     <button
-                      className="call-button"
-                      onClick={() => alert("Calling...")}
-                      type="button"
+                      className="call-button"onClick={() => alert("Calling...")} type="button"
                     >
                       Call
                     </button>
