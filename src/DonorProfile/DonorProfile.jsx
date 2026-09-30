@@ -2,53 +2,39 @@ import React,{useState}from"react";
 import{useNavigate}from"react-router-dom";
 import"./DonorProfile.css";
 
-function DonorProfile(){
+export default function DonorProfile(){
   const navigate=useNavigate();
 
   const[profile,setProfile]=useState({
-    name:"Arjun Singh",
-    email:"arjun@example.com",
-    phone:"+91 9876543210",
-    bloodGroup:"A+",
-    location:"New Town, Kolkata",
-    age:"24",
-    gender:"Male",
-    availability:true
+    name:"Arjun Singh",email:"arjun@example.com",
+    phone:"+91 9876543210",bloodGroup:"A+",
+    location:"New Town, Kolkata",age:"24",
+    gender:"Male",availability:true
   });
 
   const[editing,setEditing]=useState(false);
   const[message,setMessage]=useState("");
 
-  const handleChange=e=>{
-    const{name,value}=e.target;
-    setProfile(p=>({...p,[name]:value}));
-  };
+  const change=e=>
+    setProfile({...profile,[e.target.name]:e.target.value});
 
-  const handleSave=()=>{
+  const save=()=>{
     localStorage.setItem("donorProfile",JSON.stringify(profile));
     setEditing(false);
     setMessage("Profile updated successfully.");
     setTimeout(()=>setMessage(""),2500);
   };
 
-  const toggleAvailability=()=>{
-    const updated={
-      ...profile,
-      availability:!profile.availability
-    };
-
-    setProfile(updated);
-    localStorage.setItem("donorProfile",JSON.stringify(updated));
+  const toggle=()=>{
+    const p={...profile,availability:!profile.availability};
+    setProfile(p);
+    localStorage.setItem("donorProfile",JSON.stringify(p));
   };
 
   const fields=[
-    ["name","Full Name"],
-    ["email","Email"],
-    ["phone","Phone Number"],
-    ["bloodGroup","Blood Group"],
-    ["age","Age"],
-    ["gender","Gender"],
-    ["location","Location"]
+    ["name","Full Name"],["email","Email"],["phone","Phone Number"],
+    ["bloodGroup","Blood Group"],["age","Age"],
+    ["gender","Gender"],["location","Location"]
   ];
 
   const options={
@@ -58,15 +44,14 @@ function DonorProfile(){
 
   return(
     <div className="donor-profile-page">
+
       <header className="donor-profile-header">
         <div className="profile-logo">LifeLink</div>
 
         <nav>
-          <button onClick={()=>navigate("/find-donors")}>Home</button>
-          <button onClick={()=>navigate("/donor-dashboard")}>
-            Requests
-          </button>
-         <button type="button" onClick={()=> navigate("/donate")}>Donate</button>
+          <button>Home</button>
+          <button onClick={()=>navigate("/donor-dashboard")}>Requests</button>
+          <button onClick={()=>navigate("/donate")}>Donate</button>
           <button className="active">Profile</button>
         </nav>
 
@@ -74,30 +59,29 @@ function DonorProfile(){
       </header>
 
       <main className="donor-profile-container">
+
         <div className="profile-heading">
           <div>
             <h1>Donor Profile</h1>
             <p>Manage your donor information and availability.</p>
           </div>
 
-          {!editing&&(
-            <button
-              className="edit-button"
-              onClick={()=>setEditing(true)}
-            >
+          {!editing&&
+            <button className="edit-button" onClick={()=>setEditing(true)}>
               Edit Profile
             </button>
-          )}
+          }
         </div>
 
-        {message&&(
+        {message&&
           <div className="success-message">✓ {message}</div>
-        )}
+        }
 
         <section className="profile-card">
           <div className="profile-top">
+
             <div className="profile-avatar">
-              {profile.name.charAt(0).toUpperCase()}
+              {profile.name[0].toUpperCase()}
             </div>
 
             <div className="profile-name">
@@ -108,9 +92,7 @@ function DonorProfile(){
 
             <div className="availability-box">
               <span className={
-                profile.availability
-                  ?"available-dot"
-                  :"unavailable-dot"
+                profile.availability?"available-dot":"unavailable-dot"
               }>●</span>
 
               <div>
@@ -126,20 +108,18 @@ function DonorProfile(){
 
               <button
                 className="availability-button"
-                onClick={toggleAvailability}
+                onClick={toggle}
               >
                 {profile.availability
-                  ?"Set Unavailable"
-                  :"Set Available"}
+                  ?"Set Unavailable":"Set Available"}
               </button>
             </div>
+
           </div>
         </section>
 
         <section className="details-card">
-          <div className="card-title">
-            <h2>Personal Information</h2>
-          </div>
+          <h2>Personal Information</h2>
 
           <div className="profile-grid">
             {fields.map(([name,label])=>(
@@ -149,18 +129,17 @@ function DonorProfile(){
               >
                 <label>{label}</label>
 
-                {editing?(
-                  options[name]?(
+                {editing ? (options[name] ? (
                     <select
                       name={name}
                       value={profile[name]}
-                      onChange={handleChange}
+                      onChange={change}
                     >
-                      {options[name].map(option=>(
-                        <option key={option}>{option}</option>
-                      ))}
+                      {options[name].map(x=>
+                        <option key={x}>{x}</option>
+                      )}
                     </select>
-                  ):(
+                  ) : (
                     <input
                       name={name}
                       type={
@@ -168,20 +147,17 @@ function DonorProfile(){
                         name==="age"?"number":"text"
                       }
                       value={profile[name]}
-                      onChange={handleChange}
+                      onChange={change}
                     />
                   )
-                ):(
-                  <p>
-                    {profile[name]}
-                    {name==="age"&&" years"}
-                  </p>
+                ) : (
+                  <p>{profile[name]}{name==="age"&&" years"} </p>
                 )}
               </div>
             ))}
           </div>
 
-          {editing&&(
+          {editing&&
             <div className="profile-actions">
               <button
                 className="cancel-button"
@@ -190,14 +166,11 @@ function DonorProfile(){
                 Cancel
               </button>
 
-              <button
-                className="save-button"
-                onClick={handleSave}
-              >
+              <button className="save-button" onClick={save}>
                 Save Changes
               </button>
             </div>
-          )}
+          }
         </section>
 
         <section className="donation-card">
@@ -211,9 +184,7 @@ function DonorProfile(){
 
             <div>
               <span>Donor Status</span>
-              <strong>
-                {profile.availability?"Available":"Unavailable"}
-              </strong>
+              <strong>{profile.availability?"Available":"Unavailable"}</strong>
             </div>
 
             <div>
@@ -227,9 +198,8 @@ function DonorProfile(){
             </div>
           </div>
         </section>
+
       </main>
     </div>
   );
 }
-
-export default DonorProfile;

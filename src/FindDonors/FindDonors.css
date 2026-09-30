@@ -16,14 +16,16 @@
 
 .subtitle{margin:8px 0 30px;color:#666}
 
+/* FILTERS */
+
 .filters{
-  padding:25px;
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:20px;
+  padding:25px;
   background:#fff;
   border-radius:12px;
-  box-shadow:0 2px 10px #00000014
+  box-shadow:0 2px 10px #0001
 }
 
 .filter-group{
@@ -33,39 +35,34 @@
 }
 
 .filter-group label{
-  color:#333;
   font-size:14px;
   font-weight:600
 }
 
 .filter-group input{
-  width:100%;
   padding:12px 14px;
   border:1px solid #ddd;
   border-radius:8px;
-  outline:none;
-  background:#fff;
   font-size:15px
 }
 
-.filter-group input:focus{border-color:#dc2626}
 .filter-group input:disabled{
-  color:#555;
   background:#f8f8f8;
   cursor:not-allowed
 }
+
+/* MAP */
 
 .map-section{
   margin-top:30px;
   padding:20px;
   background:#fff;
   border-radius:12px;
-  box-shadow:0 2px 10px #00000014
+  box-shadow:0 2px 10px #0001
 }
 
 .map-section h2{
   margin:0 0 15px;
-  color:#222;
   font-size:20px
 }
 
@@ -80,6 +77,8 @@
   height:100%
 }
 
+/* DONORS */
+
 .donor-section{margin-top:30px}
 
 .donor-heading{
@@ -91,14 +90,10 @@
 
 .donor-heading h2{
   margin:0;
-  color:#222;
   font-size:24px
 }
 
-.donor-heading span{
-  color:#666;
-  font-size:14px
-}
+.donor-heading span{color:#666;font-size:14px}
 
 .donor-grid{
   display:grid;
@@ -106,21 +101,18 @@
   gap:20px
 }
 
-.donor-card,
-.no-donors{
+.donor-card,.no-donors{
   background:#fff;
   border-radius:12px;
-  box-shadow:0 2px 10px #00000014
+  box-shadow:0 2px 10px #0001
 }
 
 .donor-card{
-  padding:22px;
   display:flex;
   align-items:center;
-  gap:18px
+  gap:18px;
+  padding:22px
 }
-
-.donor-card:hover{box-shadow:0 4px 16px #0000001f}
 
 .blood-circle{
   width:60px;
@@ -131,15 +123,13 @@
   border-radius:50%;
   background:#fee2e2;
   color:#dc2626;
-  font-size:18px;
-  font-weight:700
+  font-weight:bold
 }
 
 .donor-info{flex:1}
 
 .donor-info h3{
   margin:0 0 8px;
-  color:#222;
   font-size:18px
 }
 
@@ -154,19 +144,18 @@
   font-weight:600
 }
 
+/* BUTTONS */
+
 .donor-buttons{
   display:flex;
   flex-direction:column;
   gap:8px
 }
 
-.request-button,
-.call-button{
+.request-button,.call-button{
   padding:10px 14px;
   border-radius:7px;
   font-weight:600;
-  text-align:center;
-  white-space:nowrap;
   cursor:pointer
 }
 
@@ -176,34 +165,42 @@
   color:#fff
 }
 
-.request-button:hover{background:#b91c1c}
-
 .call-button{
   border:1px solid #dc2626;
   background:#fff;
   color:#dc2626
 }
 
-.call-button:hover{background:#fee2e2}
-
 .no-donors{
   padding:40px;
   text-align:center
 }
 
-.no-donors h3{
-  margin:0 0 8px;
-  color:#333
+.no-donors h3{margin:0 0 8px}
+.no-donors p{margin:0;color:#777}
+
+/* TRACK */
+
+.tracking-section{
+  display:flex;
+  justify-content:flex-end;
+  margin:20px 0
 }
 
-.no-donors p{
-  margin:0;
-  color:#777
+.track-button{
+  border:0;
+  padding:12px 20px;
+  border-radius:8px;
+  background:#d71920;
+  color:#fff;
+  font-weight:600;
+  cursor:pointer
 }
+
+/* MOBILE */
 
 @media(max-width:900px){
-  .filters,
-  .donor-grid{grid-template-columns:1fr}
+  .filters,.donor-grid{grid-template-columns:1fr}
 }
 
 @media(max-width:600px){
@@ -211,43 +208,17 @@
   .find-donors-container h1{font-size:26px}
   .map-container{height:300px}
 
-  .donor-card{
+  .donor-heading{
     flex-direction:column;
-    align-items:flex-start
+    align-items:flex-start;
+    gap:10px
   }
 
+  .donor-card{flex-direction:column;align-items:flex-start}
   .donor-buttons{
     width:100%;
     flex-direction:row
   }
 
-  .request-button,
-  .call-button{flex:1}
-
-  .donor-heading{
-    align-items:flex-start;
-    flex-direction:column;
-    gap:10px
-  }
-}
-
-.tracking-section {
-  display: flex;
-  justify-content: flex-end;
-  margin: 20px 0;
-}
-
-.track-button {
-  border: none;
-  background: #d71920;
-  color: white;
-  padding: 12px 20px;
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.track-button:hover {
-  background: #b9151b;
+  .request-button,.call-button{flex:1}
 }
