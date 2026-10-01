@@ -20,7 +20,21 @@ export default function DonorDashboard(){
   const[pos,setPos]=useState([22.5726,88.3639]);
   const[route,setRoute]=useState([]);
   const[info,setInfo]=useState(null);
+  useEffect(()=>{
+  const data=localStorage.getItem("bloodRequest");
+  if(!data)return;
 
+  const r=JSON.parse(data);
+
+  r.donorName="Rahul Sharma";
+  r.donorBloodGroup="A+";
+  r.donorLocation="Kolkata";
+  r.donorStatus=status;
+  r.donorLatitude=pos[0];
+  r.donorLongitude=pos[1];
+
+  localStorage.setItem("bloodRequest",JSON.stringify(r));
+  },[status,pos]);
   useEffect(()=>{
     if(status!=="accepted")return;
 
