@@ -133,3 +133,18 @@ main:focus { outline: none; }
 :root[data-theme="dark"] .grp, :root[data-theme="dark"] .avatar { border: 1px solid #5a4643; }
 :root[data-theme="dark"] .unit.low { border-color: #7a2a35; }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+/* ---------- White theme (default). Night mode keeps the dark palette above. ---------- */
+:root:not([data-theme="dark"]) {
+  --bg: #ffffff; --card: #ffffff; --ink: #1c1c1e; --muted: #5b5b60; --line: #e3e3e6;
+}
+:root:not([data-theme="dark"]) .side { background: #fff; color: var(--ink); border-right: 1px solid var(--line); }
+:root:not([data-theme="dark"]) .side nav a:hover { background: #f4f4f5; }
+:root:not([data-theme="dark"]) .side nav a.active { background: var(--red-soft); color: var(--red-text); font-weight: 600; }
+:root:not([data-theme="dark"]) .pill { background: var(--red); color: #fff; }
+:root:not([data-theme="dark"]) .logout { border-color: var(--line); }
+:root:not([data-theme="dark"]) .logout:hover { background: #f4f4f5; }
+:root:not([data-theme="dark"]) .avatar,
+:root:not([data-theme="dark"]) .grp { background: #f1f1f3; color: var(--ink); border: 1px solid var(--line); }
+:root:not([data-theme="dark"]) th { background: #fafafa; }
+:root:not([data-theme="dark"]) .top { padding-bottom: 12px; border-bottom: 1px solid var(--line); }

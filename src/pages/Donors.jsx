@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { getDonors, updateDonor, createDonor, GROUPS } from "../api";
-import useDebounce from "../hooks/useDebounce";
+import useDebounce from "../hooks/UseDebounce";
 import DataTable from "../components/DataTable";
-import Modal from "../components/Modal";
+import Modal from "../components/modal";
 
 const LIMIT = 8;
 
@@ -68,7 +68,7 @@ export default function Donors() {
     { key: "name", label: "Name" },
     { key: "phone", label: "Phone" },
     { key: "group", label: "Group", render: (d) => <span className="grp">{d.group}</span> },
-    { key: "status", label: "Status", render: (d) => <span className={"tag " + d.status.toLowerCase()}>{d.status}</span> },
+    { key: "status", label: "Status", render: (d) => <span className={"tag " + (d.status?.toLowerCase() || "")}>{d.status || "—"}</span> },
     { key: "location", label: "Location" },
     { key: "lastDonation", label: "Last donation", render: (d) => d.lastDonation || "—" },
     {

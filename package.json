@@ -10,13 +10,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
     "lucide-react": "^1.48.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "react-router-dom": "^7.18.4",
-    "react-scripts": "^5.0.1"
+    "react-scripts": "^5.0.1",
+    "react-toastify": "^11.1.0"
   },
   "browserslist": {
     "production": [

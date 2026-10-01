@@ -1,5 +1,9 @@
 let ctx;
 // two short beeps made in the browser, so no sound file is needed
+export function playAlert() {
+  playTone();
+}
+
 export function playTone() {
     try {
         const AudioCtx = typeof window !== "undefined" && (window.AudioContext || window.webkitAudioContext);

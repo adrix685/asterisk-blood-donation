@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getStats, getSettings, GROUPS } from "../api";
-import StatCard from "../components/StatCard";
+import StatCard from "../components/StateCard";
 
 export default function Dashboard() {
   const [s, setS] = useState(null);
