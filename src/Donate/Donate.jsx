@@ -43,8 +43,6 @@ function Donate() {
           <button className="active">Donate</button>
           <button onClick={() => go("/donor-profile")}>Profile</button>
         </nav>
-
-        <button className="notification-btn">🔔</button>
       </header>
 
       <main className="donate-container">

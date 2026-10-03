@@ -54,8 +54,6 @@ export default function DonorProfile(){
           <button onClick={()=>navigate("/donate")}>Donate</button>
           <button className="active">Profile</button>
         </nav>
-
-        <button className="notification-btn">🔔</button>
       </header>
 
       <main className="donor-profile-container">
